@@ -1,0 +1,199 @@
+.section {
+  background:
+    radial-gradient(ellipse 45% 50% at 100% 0%, rgba(240, 180, 195, 0.45), transparent 55%),
+    radial-gradient(ellipse 40% 40% at 0% 100%, rgba(150, 142, 146, 0.3), transparent 55%),
+    transparent;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 5vw, 3.75rem);
+}
+
+.headingWrap {
+  max-width: min(100%, 48rem);
+  margin-inline-start: auto;
+  text-align: right;
+}
+
+.locationHeading {
+  max-width: none;
+}
+
+.locationHeading :global(h2) {
+  text-wrap: unset;
+}
+
+.locationHeading :global(h2 > span) {
+  display: block;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .locationHeading :global(h2 > span) {
+    white-space: normal;
+  }
+}
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  align-self: flex-start;
+  padding: 0.55rem 0.95rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  background: var(--accent-sea);
+}
+
+.name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--btn-dark);
+}
+
+.address {
+  margin: 0;
+  max-width: 22rem;
+  color: var(--btn-dark);
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  margin: 0.5rem 0 0;
+}
+
+.meta div {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.meta dt {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--btn-dark);
+}
+
+.meta dd {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  color: var(--btn-dark);
+}
+
+.meta a {
+  color: var(--btn-dark);
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+  text-decoration-color: rgba(255, 245, 235, 0.45);
+  transition: text-decoration-color 0.3s ease, color 0.3s ease;
+}
+
+.meta a:hover,
+.meta a:focus-visible {
+  color: var(--btn-dark);
+  text-decoration-color: var(--btn-dark);
+}
+
+.hoursNote {
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.8);
+  font-style: italic;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+.mapCard {
+  position: relative;
+  padding: clamp(0.75rem, 1.8vw, 1.15rem);
+}
+
+.mapLayer {
+  position: absolute;
+  inset: 1.4rem 0 0 1.4rem;
+  background: var(--bg-ocean);
+  opacity: 0.45;
+  z-index: 0;
+}
+
+.mapFrame {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-petrol);
+  box-shadow: 0 28px 60px rgba(217, 133, 72, 0.35);
+}
+
+.mapFrame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: saturate(0.85) contrast(1.05);
+}
+
+.mapAccent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 38%;
+  height: 0.35rem;
+  background: var(--accent-sea);
+  z-index: 2;
+}
+
+@media (max-width: 900px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .mapCard {
+    order: -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .ctas {
+    flex-direction: column;
+  }
+
+  .ctas :global(a),
+  .ctas :global(button) {
+    width: 100%;
+  }
+}

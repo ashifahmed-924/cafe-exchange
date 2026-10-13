@@ -1,0 +1,65 @@
+.line-mask {
+  overflow: hidden;
+  display: block;
+}
+
+.line-mask > span {
+  display: block;
+  transform: translateY(110%);
+}
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(2.5rem);
+}
+
+.clip-reveal {
+  clip-path: inset(0 0 100% 0);
+}
+
+@keyframes scrollPulse {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+    transform-origin: top;
+    opacity: 0.4;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+    opacity: 1;
+  }
+}
+
+@keyframes rotateSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.anim-scroll-line {
+  animation: scrollPulse 1.8s var(--ease-soft) infinite;
+}
+
+.anim-rotate {
+  animation: rotateSlow 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-scroll-line,
+  .anim-rotate {
+    animation: none;
+  }
+}

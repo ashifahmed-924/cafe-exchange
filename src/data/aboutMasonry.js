@@ -1,0 +1,66 @@
+/** Food & café imagery for the About masonry — illustrative until venue photos are approved. */
+export const aboutMasonryItems = [
+  {
+    id: "am1",
+    img: "/images/menu/avocado.jpg",
+    alt: "Brunch plate",
+    url: "#menu",
+    height: 520,
+  },
+  {
+    id: "am2",
+    img: "/images/menu/croissant.jpg",
+    alt: "Fresh croissant",
+    url: "#menu",
+    height: 320,
+  },
+  {
+    id: "am3",
+    img: "/images/coffee/latte-art.jpg",
+    alt: "Latte art",
+    url: "#menu",
+    height: 480,
+  },
+  {
+    id: "am4",
+    img: "/images/menu/sandwich.jpg",
+    alt: "Café sandwich",
+    url: "#menu",
+    height: 360,
+  },
+  {
+    id: "am5",
+    img: "/images/menu/pastry.jpg",
+    alt: "Pastry",
+    url: "#menu",
+    height: 440,
+  },
+  {
+    id: "am6",
+    img: "/images/menu/breakfast-01.jpg",
+    alt: "Breakfast plate",
+    url: "#menu",
+    height: 300,
+  },
+  {
+    id: "am7",
+    img: "/images/coffee/espresso.jpg",
+    alt: "Espresso",
+    url: "#menu",
+    height: 400,
+  },
+  {
+    id: "am8",
+    img: "/images/menu/bakery-01.jpg",
+    alt: "Bakery selection",
+    url: "#menu",
+    height: 340,
+  },
+  {
+    id: "am9",
+    img: "/images/menu/lunch-01.jpg",
+    alt: "Lunch plate",
+    url: "#menu",
+    height: 460,
+  },
+];

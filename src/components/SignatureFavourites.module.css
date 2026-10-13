@@ -1,0 +1,257 @@
+.section {
+  background:
+    radial-gradient(ellipse 50% 40% at 90% 10%, rgba(240, 180, 195, 0.45), transparent 60%),
+    radial-gradient(ellipse 40% 35% at 10% 90%, rgba(150, 142, 146, 0.3), transparent 55%),
+    transparent;
+  overflow: hidden;
+}
+
+.inner {
+  position: relative;
+}
+
+.headingWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: clamp(2rem, 4vw, 3.25rem);
+  max-width: min(100%, 52rem);
+  margin-inline-end: auto;
+  text-align: left;
+}
+
+.favouritesHeading {
+  max-width: none;
+}
+
+.favouritesHeading :global(h2) {
+  text-wrap: unset;
+}
+
+.favouritesHeading :global(h2 > span) {
+  display: block;
+}
+
+.favouritesHeading :global(h2 > span:last-child) {
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  .favouritesHeading :global(h2 > span:last-child) {
+    white-space: normal;
+  }
+}
+
+.note {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--btn-dark);
+  max-width: 32rem;
+  text-align: left;
+}
+
+.controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  gap: 0.65rem;
+  z-index: 2;
+}
+
+.control {
+  display: grid;
+  place-items: center;
+  width: 2.85rem;
+  height: 2.85rem;
+  color: var(--btn-dark);
+  border: 1px solid var(--border-subtle);
+  border-radius: 50%;
+  background: transparent;
+  transition:
+    border-color 0.3s var(--ease-out),
+    color 0.3s ease,
+    background 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.control:hover:not(:disabled),
+.control:focus-visible:not(:disabled) {
+  border-color: var(--btn-dark);
+  color: var(--btn-dark);
+  background: rgba(255, 245, 235, 0.08);
+}
+
+.control:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.viewport {
+  overflow: hidden;
+  margin-right: calc(var(--gutter) * -0.35);
+}
+
+.track {
+  display: flex;
+  width: calc(100% * var(--item-count) / var(--visible));
+  will-change: transform;
+}
+
+.slide {
+  flex: 0 0 calc(100% / var(--item-count));
+  padding-right: clamp(0.85rem, 1.8vw, 1.35rem);
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+  color: inherit;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.media {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--bg-petrol);
+}
+
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.1rem;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--btn-dark);
+  transition: color 0.35s var(--ease-out);
+}
+
+.arrow {
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  color: var(--btn-dark);
+  border: 1px solid var(--border-subtle);
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateX(-0.4rem);
+  transition:
+    opacity 0.35s var(--ease-out),
+    transform 0.35s var(--ease-out),
+    border-color 0.3s ease;
+}
+
+.card:hover .name,
+.card:focus-visible .name {
+  color: var(--btn-dark);
+}
+
+.card:hover .arrow,
+.card:focus-visible .arrow {
+  opacity: 1;
+  transform: translateX(0);
+  border-color: var(--btn-dark);
+}
+
+.sample {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  background: var(--accent-sea);
+}
+
+@media (max-width: 1024px) {
+  .controls {
+    position: static;
+    justify-content: flex-end;
+    margin-bottom: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .controls {
+    display: none;
+  }
+
+  .viewport {
+    margin-right: 0;
+    overflow: visible;
+  }
+
+  .track {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 0.75rem;
+    width: 100%;
+    transform: none !important;
+  }
+
+  .slide {
+    flex: none;
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .media {
+    aspect-ratio: 3 / 4;
+  }
+
+  .meta {
+    padding-top: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .name {
+    font-size: clamp(0.95rem, 3.8vw, 1.15rem);
+  }
+
+  .arrow {
+    opacity: 1;
+    transform: none;
+    width: 1.75rem;
+    height: 1.75rem;
+    flex-shrink: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arrow {
+    transition: none;
+  }
+
+  .name {
+    transition: none;
+  }
+}

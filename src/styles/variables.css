@@ -1,0 +1,66 @@
+:root {
+  /* Soft pink + ash — warm blush over cool gray */
+  --bg-primary: #d4a0b0;
+  --bg-marine: #b88496;
+  --bg-petrol: #e2b8c4;
+  --bg-ocean: #c9b5bb;
+  --accent-sea: #000000;
+  --ivory: #faf8f7;
+  --silver: rgba(0, 0, 0, 0.82);
+  --pale: #f3ecee;
+
+  --text-primary: #000000;
+  --text-muted: rgba(0, 0, 0, 0.84);
+  --text-dark: #000000;
+  --text-dark-muted: rgba(0, 0, 0, 0.8);
+
+  --btn-dark: #000000;
+  --btn-dark-soft: #141414;
+
+  --border-subtle: rgba(0, 0, 0, 0.14);
+  --border-strong: rgba(0, 0, 0, 0.28);
+  --glass: rgba(212, 160, 176, 0.9);
+  --overlay: rgba(120, 110, 112, 0.5);
+  --overlay-strong: rgba(90, 84, 86, 0.68);
+
+  /* Shared radiant fills — pink ↔ ash */
+  --bg-radiant: linear-gradient(
+    145deg,
+    #f0c4d0 0%,
+    #d4a0b0 40%,
+    #9a9094 100%
+  );
+  --bg-radiant-soft: linear-gradient(
+    160deg,
+    #f7d6e0 0%,
+    #e2b8c4 48%,
+    #b5adb0 100%
+  );
+  --glow-core: rgba(240, 170, 190, 0.55);
+  --glow-hot: rgba(160, 150, 155, 0.5);
+  --glow-ember: rgba(200, 140, 160, 0.4);
+
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Manrope", system-ui, sans-serif;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --header-h: 5.25rem;
+  --section-pad: clamp(2.5rem, 5vw, 4.25rem);
+  --content-max: 1400px;
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+
+  --radius-sm: 2px;
+  --radius-md: 6px;
+  --focus-ring: 0 0 0 2px var(--ivory), 0 0 0 4px var(--btn-dark);
+
+  --z-header: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+  --z-lightbox: 400;
+
+  --hero-display: clamp(2.8rem, 9vw, 8.25rem);
+  --section-display: clamp(2.4rem, 6.5vw, 5.75rem);
+  --sub-display: clamp(1.5rem, 3.2vw, 2.75rem);
+}

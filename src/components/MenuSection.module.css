@@ -1,0 +1,255 @@
+.section {
+  background:
+    radial-gradient(ellipse 50% 40% at 0% 100%, rgba(240, 180, 195, 0.4), transparent 55%),
+    radial-gradient(ellipse 45% 35% at 100% 0%, rgba(150, 142, 146, 0.32), transparent 55%),
+    transparent;
+  color: var(--btn-dark);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 5vw, 3.5rem);
+}
+
+.heading {
+  max-width: 42rem;
+  margin-inline-start: auto;
+}
+
+.explorer {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.85rem;
+}
+
+.tab {
+  position: relative;
+  padding: 0.45rem 0.15rem;
+  font-family: var(--font-body);
+  font-size: clamp(0.72rem, 1vw, 0.8rem);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.72);
+  opacity: 1;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.tab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.9rem;
+  height: 2px;
+  background: var(--accent-sea);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.tab:hover,
+.tab:focus-visible {
+  opacity: 1;
+  color: var(--btn-dark);
+}
+
+.tabActive {
+  opacity: 1;
+  color: var(--btn-dark);
+}
+
+.tabActive::after {
+  transform: scaleX(1);
+}
+
+.panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+.preview {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--bg-petrol);
+}
+
+.previewImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wipe {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: var(--accent-sea);
+  transform: scaleX(0);
+  pointer-events: none;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+.catLabel {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--btn-dark);
+}
+
+.catDesc {
+  margin: 0;
+  max-width: 34rem;
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  font-weight: 600;
+  line-height: 1.7;
+  color: var(--btn-dark);
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+  padding-block: 0.85rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.item:last-child {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.itemMedia {
+  overflow: hidden;
+  width: 4.5rem;
+  height: 4.5rem;
+  background: var(--bg-petrol);
+}
+
+.itemMedia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.itemBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.itemHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.85rem;
+}
+
+.itemName {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--btn-dark);
+}
+
+.itemPrice {
+  flex-shrink: 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--btn-dark);
+  white-space: nowrap;
+}
+
+.itemDesc {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.55;
+  color: rgba(0, 0, 0, 0.82);
+}
+
+.sampleBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid var(--border-strong);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--btn-dark);
+}
+
+.actions {
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .panel {
+    grid-template-columns: 1fr;
+  }
+
+  .preview {
+    max-width: 28rem;
+    aspect-ratio: 5 / 4;
+  }
+}
+
+@media (max-width: 560px) {
+  .item {
+    grid-template-columns: 3.75rem minmax(0, 1fr);
+  }
+
+  .itemMedia {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tab::after {
+    transition: none;
+  }
+
+  .wipe {
+    display: none;
+  }
+}

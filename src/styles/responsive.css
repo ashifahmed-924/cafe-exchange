@@ -1,0 +1,23 @@
+@media (max-width: 1024px) {
+  :root {
+    --header-h: 4.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-pad: clamp(2rem, 8vw, 3.25rem);
+  }
+}
+
+@media (max-width: 430px) {
+  body {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 320px) {
+  :root {
+    --gutter: 1rem;
+  }
+}

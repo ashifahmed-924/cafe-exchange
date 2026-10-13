@@ -1,0 +1,253 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 2rem);
+  background: rgba(30, 28, 30, 0.55);
+  color: var(--btn-dark);
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.modalOpen {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.panel {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 42rem);
+  max-height: min(88svh, 40rem);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  overflow: hidden;
+  background: #faf8f7;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 1rem;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.28),
+    0 2px 0 rgba(255, 255, 255, 0.6) inset;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.eyebrow {
+  margin: 0 0 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--btn-dark);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 3.5vw, 2.15rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.note {
+  margin: 0.5rem 0 0;
+  max-width: 28rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--btn-dark);
+  border: 1.5px solid rgba(0, 0, 0, 0.18);
+  border-radius: 999px;
+  background: transparent;
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.close span {
+  display: none;
+}
+
+.close:hover,
+.close:focus-visible {
+  color: var(--ivory);
+  border-color: var(--btn-dark);
+  background: var(--btn-dark);
+}
+
+.tabs {
+  display: flex;
+  gap: 0.35rem;
+  overflow-x: auto;
+  padding-block: 0.9rem;
+  flex-shrink: 0;
+  scrollbar-width: thin;
+}
+
+.tab {
+  flex-shrink: 0;
+  padding: 0.55rem 0.95rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.65);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.tab:hover,
+.tab:focus-visible {
+  color: var(--btn-dark);
+  border-color: rgba(0, 0, 0, 0.14);
+}
+
+.tabActive {
+  color: var(--ivory);
+  background: var(--btn-dark);
+  border-color: var(--btn-dark);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.listPane {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.categoryDesc {
+  margin: 0 0 0.75rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.75);
+  flex-shrink: 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  overflow: auto;
+  margin: 0;
+  padding: 0 0.15rem 0.25rem 0;
+  list-style: none;
+  scrollbar-width: thin;
+  flex: 1;
+  min-height: 0;
+}
+
+.item {
+  display: grid;
+  gap: 0.25rem;
+  width: 100%;
+  padding: 0.85rem 0.9rem;
+  text-align: left;
+  color: inherit;
+  border: 1px solid transparent;
+  border-radius: 0.65rem;
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.item:hover,
+.item:focus-visible,
+.itemActive {
+  background: rgba(212, 160, 176, 0.22);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.itemRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.85rem;
+}
+
+.itemName {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.itemPrice {
+  flex-shrink: 0;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--btn-dark);
+  white-space: nowrap;
+}
+
+.itemDesc {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.72);
+  line-height: 1.45;
+}
+
+.preview {
+  display: none;
+}
+
+.previewFrame,
+.previewImage,
+.previewLabel {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    transition: none;
+  }
+}

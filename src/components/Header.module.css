@@ -1,0 +1,232 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  height: var(--header-h);
+  color: var(--ivory);
+  background: transparent;
+  transition:
+    top 0.4s var(--ease-out),
+    left 0.4s var(--ease-out),
+    right 0.4s var(--ease-out),
+    height 0.4s var(--ease-out),
+    background 0.4s var(--ease-out),
+    backdrop-filter 0.4s var(--ease-out),
+    border-color 0.4s var(--ease-out),
+    border-radius 0.4s var(--ease-out),
+    box-shadow 0.4s var(--ease-out);
+  border: 1px solid transparent;
+}
+
+.scrolled {
+  top: 0.85rem;
+  left: max(0.75rem, calc(var(--gutter) - 0.5rem));
+  right: max(0.75rem, calc(var(--gutter) - 0.5rem));
+  height: 4.15rem;
+  background: rgba(255, 250, 246, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-color: rgba(24, 24, 27, 0.08);
+  border-radius: 999px;
+  box-shadow:
+    0 12px 40px rgba(24, 24, 27, 0.12),
+    0 2px 0 rgba(255, 255, 255, 0.55) inset;
+  color: var(--btn-dark);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+  width: min(100% - (var(--gutter) * 2), var(--content-max));
+  margin-inline: auto;
+  transition: width 0.4s var(--ease-out), padding 0.4s var(--ease-out);
+}
+
+.scrolled .inner {
+  width: 100%;
+  padding-inline: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  text-decoration: none;
+  color: inherit;
+  min-width: 0;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.5vw, 1.28rem);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--btn-dark);
+  transition: color 0.35s ease;
+}
+
+.scrolled .subtitle {
+  color: var(--btn-dark);
+}
+
+.desktopNav {
+  display: none;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.28rem;
+  list-style: none;
+  margin: 0;
+}
+
+.scrolled .navList {
+  background: rgba(24, 24, 27, 0.05);
+  border-radius: 999px;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 0.95rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 250, 246, 0.82);
+  text-decoration: none;
+  border-radius: 999px;
+  transition:
+    color 0.25s ease,
+    background 0.25s ease;
+}
+
+.scrolled .navLink {
+  color: rgba(24, 24, 27, 0.62);
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+  color: var(--ivory);
+  background: rgba(255, 250, 246, 0.14);
+}
+
+.scrolled .navLink:hover,
+.scrolled .navLink:focus-visible {
+  color: var(--btn-dark);
+  background: rgba(24, 24, 27, 0.08);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  justify-self: end;
+}
+
+.cta {
+  display: none;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  color: var(--ivory);
+  background: rgba(255, 250, 246, 0.12);
+  border: 1.5px solid rgba(255, 250, 246, 0.35);
+  border-radius: 999px;
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.scrolled .toggle {
+  color: var(--ivory);
+  background: var(--btn-dark);
+  border-color: var(--btn-dark);
+  box-shadow: 0 8px 20px rgba(24, 24, 27, 0.2);
+}
+
+.toggle:hover,
+.toggle:focus-visible {
+  color: var(--ivory);
+  background: var(--btn-dark);
+  border-color: var(--btn-dark);
+}
+
+.toggleLabel {
+  display: none;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    grid-template-columns: minmax(9rem, 1fr) auto minmax(9rem, 1fr);
+  }
+
+  .desktopNav {
+    display: block;
+    justify-self: center;
+  }
+
+  .navLink {
+    font-size: 0.64rem;
+    padding: 0.5rem 0.85rem;
+  }
+
+  .cta {
+    display: inline-flex;
+  }
+
+  .toggle {
+    width: auto;
+    height: auto;
+    padding: 0.55rem 0.95rem;
+  }
+
+  .toggleLabel {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .scrolled {
+    border-radius: 1.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .inner,
+  .subtitle,
+  .navLink,
+  .toggle {
+    transition: none;
+  }
+}

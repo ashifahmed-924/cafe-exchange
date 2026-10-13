@@ -1,0 +1,84 @@
+.section {
+  background:
+    radial-gradient(ellipse 80% 40% at 50% 0%, rgba(240, 190, 205, 0.45), transparent 50%),
+    linear-gradient(180deg, #e8b4c0 0%, #d4a0b0 45%, #9a9094 100%);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 5vw, 4rem);
+}
+
+.headingWrap {
+  max-width: min(100%, 48rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-inline-start: auto;
+  text-align: right;
+}
+
+.galleryHeading {
+  max-width: none;
+}
+
+.galleryHeading :global(h2) {
+  text-wrap: unset;
+}
+
+.galleryHeading :global(h2 > span) {
+  display: block;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .galleryHeading :global(h2 > span) {
+    white-space: normal;
+  }
+}
+
+.note {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--btn-dark);
+  max-width: 34rem;
+  text-align: right;
+}
+
+.accordion {
+  width: 100%;
+}
+
+.accordionGallery :global(.ag-panel) {
+  background: var(--bg-petrol);
+  box-shadow: 0 14px 36px -20px rgba(217, 133, 72, 0.9);
+}
+
+.accordionGallery :global(.ag-panel:focus-visible) {
+  box-shadow:
+    var(--focus-ring),
+    0 14px 36px -20px rgba(217, 133, 72, 0.9);
+}
+
+.accordionGallery :global(.ag-panel__text) {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+}
+
+.accordionGallery :global(.ag-panel__bar) {
+  box-shadow: 0 0 14px color-mix(in srgb, var(--accent-sea) 55%, transparent);
+}
+
+@media (max-width: 520px) {
+  .accordionGallery {
+    height: auto !important;
+    min-height: 520px;
+  }
+}

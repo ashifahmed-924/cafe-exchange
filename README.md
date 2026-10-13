@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Cafe exchange
 
 
@@ -91,3 +92,49 @@ For open source projects, say how it is licensed.
 
 ## Project status
 If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+=======
+# Cafe Exchange — Dandenong South
+
+Premium static React homepage for Cafe Exchange (Dandenong South), inspired by Wildish’s cinematic hospitality layout language — reinterpreted with a midnight teal / petrol marine palette.
+
+## Stack
+
+- React + Vite (JavaScript / JSX only)
+- GSAP + ScrollTrigger + Flip + `@gsap/react`
+- Lenis smooth scrolling
+- Lucide React icons
+- CSS Modules + design tokens
+
+## Commands
+
+```bash
+npm install
+npm run dev
+npm run build
+npm run preview
+```
+
+Production output is static (`dist/`) and suitable for DigitalOcean App Platform, Spaces, Nginx, or any static host.
+
+## Structure
+
+- `src/components/` — 14 homepage sections (Header + Hero through Footer)
+- `src/ui/` — AnimatedButton, FullscreenMenu, ImageLightbox, FoodModal, SectionHeading
+- `src/data/` — business, menu, gallery, reviews, faq
+- `src/animations/` — GSAP helpers
+- `public/images/` — local illustrative photography (WebP/JPG)
+
+## Before launch — confirm
+
+1. **Hours** — listed Mon–Fri 5am–3pm / weekends closed (owner confirmation)
+2. **Official menu** — replace sample categories/items in `src/data/menu.js` (no prices until verified)
+3. **Photography** — replace illustrative Unsplash assets with approved Cafe Exchange photos
+4. **Email / social** — Google lists a Facebook website; full profile URL and email need verification before linking
+5. **Reviews** — current excerpts are public Google snippets; expand only with accurate attributed quotes
+
+## Design notes
+
+- Palette: `#103C46`, `#102F3A`, `#174F60`, `#276775`, `#A8D5D1`, `#F6F5F0`
+- No brown / pure black / orange background blocks
+- Enquiry form uses phone handoff until a verified email exists
+>>>>>>> d728def (Initial commit: Cafe Exchange site)
